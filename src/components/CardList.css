@@ -1,0 +1,33 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.card {
+  width: 80px;
+  height: 120px;
+  background-color: black;
+  color: white;
+  border: 2px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.card.selected {
+  transform: scale(1.1);
+  border-color: yellow;
+  color: yellow;
+}
+
+.card-content {
+  font-size: 24px;
+  text-align: center;
+}
