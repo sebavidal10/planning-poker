@@ -7,24 +7,17 @@
 }
 
 .card {
-  width: 80px;
-  height: 120px;
-  background-color: black;
-  color: white;
-  border: 2px solid green;
+  width: 40px;
+  height: 60px;
+  border: 2px solid gray;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-family: 'Courier New', Courier, monospace;
-  position: relative;
-  transition: transform 0.2s;
 }
 
 .card.selected {
-  transform: scale(1.1);
-  border-color: yellow;
-  color: yellow;
+  background-color: lightblue;
 }
 
 .card-content {
