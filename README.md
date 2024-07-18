@@ -14,7 +14,7 @@ npm install
 
 ## Configuración
 
-Para configurar la aplicación, se debe crear un archivo `.env` en la raíz del proyecto con las siguientes variables de entorno:
+Para configurar la aplicación, se debe crear un archivo `.env` en la raíz del proyecto en base al `.env.example`, especificamente con las siguiente variable de entorno:
 
 ```env
 REACT_APP_API_URL=http://localhost:3001
