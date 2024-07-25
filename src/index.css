@@ -7,7 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+input {
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 1em;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 1em;
+  cursor: pointer;
 }
