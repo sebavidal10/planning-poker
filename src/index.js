@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './Root'; // Asegúrate de importar el componente Root
-import './index.css';
+import Root from './views/Root'; // Asegúrate de importar el componente Root
+import './assets/styles/main.css';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import './App.css';
+import '../assets/styles/main.css';
 import io from 'socket.io-client';
-import CardList from './components/CardList';
-import CountdownTimer from './components/CountdownTimer';
+import CardList from '../components/CardList';
+import CountdownTimer from '../components/CountdownTimer';
+import { useParams, useNavigate, Navigate, Link } from 'react-router-dom';
 
 const socket = io(process.env.REACT_APP_API_URL);
 
@@ -18,11 +18,33 @@ const App = () => {
   const [showResults, setShowResults] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
   const [error, setError] = useState('');
-  const [roomOpen, setRoomOpen] = useState(false);
+  const [roomOpen, setRoomOpen] = useState(true);
+  const [roomExists, setRoomExists] = useState(true); // Nuevo estado para verificar si la sala existe
+  const [owner, setOwner] = useState(''); // Estado para almacenar el propietario de la sala
 
   useEffect(() => {
+    const fetchRoomDetails = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/rooms/${votingInstanceName}`
+        );
+        if (response.status === 404) {
+          setRoomExists(false);
+          return;
+        }
+        if (!response.ok) throw new Error('Failed to fetch room details');
+        const data = await response.json();
+        setRoomOpen(data.room.open);
+        setParticipants(data.participants);
+        setJoinedParticipants(data.participants);
+        console.log(data);
+        setOwner('===>', data.owner); // Almacena el propietario de la sala
+      } catch (err) {
+        setError('Error fetching room details: ' + err.message);
+      }
+    };
+
     fetchRoomDetails();
-    updateResults();
 
     socket.on('timerTick', () => {
       setTimerStarted(true);
@@ -30,9 +52,11 @@ const App = () => {
 
     socket.on(
       'updateParticipants',
-      ({ votingInstanceName: instance, participants }) => {
+      ({ votingInstanceName: instance, participants, owner }) => {
         if (instance === votingInstanceName) {
           setJoinedParticipants(participants);
+          setOwner(owner); // Actualiza el propietario de la sala cuando los participantes se actualizan
+          console.log('2===>', owner);
         }
       }
     );
@@ -83,24 +107,8 @@ const App = () => {
     updateResults();
   };
 
-  const fetchRoomDetails = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/rooms/${votingInstanceName}`
-      );
-      if (!response.ok) throw new Error('Failed to fetch room details');
-      const data = await response.json();
-      setRoomOpen(data.room.open);
-      setParticipants(data.participants);
-      setJoinedParticipants(data.participants);
-    } catch (err) {
-      setError('Error fetching room details: ' + err.message);
-    }
-  };
-
   const updateResults = useCallback(() => {
-    console.log('Fetching results');
-    fetch(`${process.env.REACT_APP_API_URL}/rooms/${votingInstanceName}`)
+    fetch(`${process.env.REACT_APP_API_URL}/results/${votingInstanceName}`)
       .then((res) => res.json())
       .then((data) => {
         setParticipants(data);
@@ -165,9 +173,15 @@ const App = () => {
     return trimmedVotes.length > 0 ? sum / trimmedVotes.length : 0;
   }, []);
 
+  if (!roomExists) {
+    return <Navigate to="/404" />;
+  }
+
   return (
     <div className="App">
-      <h1>Planning Poker</h1>
+      <h1>
+        <Link to="/">Planning Poker</Link>
+      </h1>
       <h2>Voting Instance Name: {votingInstanceName}</h2>
       {error && <p className="error">{error}</p>}
       {!roomOpen ? (
@@ -206,13 +220,15 @@ const App = () => {
                 onSelect={handleSelect}
                 selectedValue={selectedValue}
               />
-              <button onClick={startTimer} disabled={timerStarted}>
-                Start Timer
-              </button>
-              &nbsp; &nbsp;
-              <button onClick={deleteVotes}>Reset All Votes</button>
-              &nbsp; &nbsp;
-              <button onClick={closeRoom}>Close Room</button>
+              {name === owner && (
+                <>
+                  <button onClick={startTimer} disabled={timerStarted}>
+                    Start Timer
+                  </button>
+                  <button onClick={deleteVotes}>Delete Votes</button>
+                  <button onClick={closeRoom}>Close Room</button>
+                </>
+              )}
               {timerStarted && <CountdownTimer onTimerEnd={handleTimerEnd} />}
               {showResults && (
                 <table className="text-left margin-auto">

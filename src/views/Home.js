@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './App.css';
+import '../assets/styles/main.css';
 
 const Home = () => {
   const [instanceName, setInstanceName] = useState('');
