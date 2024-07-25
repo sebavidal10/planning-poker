@@ -32,4 +32,3 @@ npm start
 
 - Diseño
 - Separación en componentes
-- ID de instancia "editable" en pantalla
