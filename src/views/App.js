@@ -238,7 +238,9 @@ const App = () => {
                   <button onClick={startTimer} disabled={timerStarted}>
                     Start Timer
                   </button>
+                  &nbsp;
                   <button onClick={deleteVotes}>Delete Votes</button>
+                  &nbsp;
                   <button onClick={closeRoom}>Close Room</button>
                 </>
               )}
