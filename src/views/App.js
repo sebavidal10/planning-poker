@@ -61,6 +61,13 @@ const App = () => {
       }
     );
 
+    socket.on('roomClosed', ({ votingInstanceName: closedRoom }) => {
+      if (closedRoom === votingInstanceName) {
+        alert('Esta sala ha sido cerrada.');
+        navigate('/');
+      }
+    });
+
     socket.on('connect_error', (err) => {
       setError('Connection Error: ' + err.message);
     });
@@ -69,6 +76,7 @@ const App = () => {
       socket.off('timerTick');
       socket.off('updateParticipants');
       socket.off('connect_error');
+      socket.off('roomClosed');
     };
   }, [votingInstanceName]);
 
@@ -108,10 +116,10 @@ const App = () => {
   };
 
   const updateResults = useCallback(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/results/${votingInstanceName}`)
+    fetch(`${process.env.REACT_APP_API_URL}/rooms/${votingInstanceName}`)
       .then((res) => res.json())
       .then((data) => {
-        setParticipants(data);
+        setParticipants(data.participants);
       })
       .catch((error) => {
         setError('Error fetching results: ' + error.message);
@@ -123,7 +131,7 @@ const App = () => {
   };
 
   const deleteVotes = () => {
-    fetch(`${process.env.REACT_APP_API_URL}/results/${votingInstanceName}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/rooms/${votingInstanceName}`, {
       method: 'DELETE',
     })
       .then((res) => {
@@ -148,8 +156,6 @@ const App = () => {
     )
       .then((res) => {
         if (!res.ok) throw new Error('Failed to close room');
-        alert('Hasta pronto');
-        navigate('/');
       })
       .catch((error) => {
         setError('Error closing room: ' + error.message);
@@ -168,7 +174,11 @@ const App = () => {
       .filter((vote) => vote !== null)
       .sort((a, b) => a - b);
     if (sortedVotes.length === 0) return 0;
-    const trimmedVotes = sortedVotes.slice(1, sortedVotes.length - 1);
+
+    let trimmedVotes = sortedVotes;
+    if (sortedVotes.length >= 4) {
+      trimmedVotes = sortedVotes.slice(1, sortedVotes.length - 1);
+    }
     const sum = trimmedVotes.reduce((a, b) => a + b, 0);
     return trimmedVotes.length > 0 ? sum / trimmedVotes.length : 0;
   }, []);
@@ -185,7 +195,10 @@ const App = () => {
       <h2>Voting Instance Name: {votingInstanceName}</h2>
       {error && <p className="error">{error}</p>}
       {!roomOpen ? (
-        <p>This room is closed.</p>
+        <>
+          <p>This room is closed.</p>
+          <button onClick={() => navigate('/')}>Go to Home</button>
+        </>
       ) : (
         <>
           {joinedParticipants.length > 0 && (
