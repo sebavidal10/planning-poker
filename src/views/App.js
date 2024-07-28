@@ -37,8 +37,7 @@ const App = () => {
         setRoomOpen(data.room.open);
         setParticipants(data.participants);
         setJoinedParticipants(data.participants);
-        console.log(data);
-        setOwner('===>', data.owner); // Almacena el propietario de la sala
+        setOwner(data.owner); // Almacena el propietario de la sala
       } catch (err) {
         setError('Error fetching room details: ' + err.message);
       }
@@ -55,8 +54,7 @@ const App = () => {
       ({ votingInstanceName: instance, participants, owner }) => {
         if (instance === votingInstanceName) {
           setJoinedParticipants(participants);
-          setOwner(owner); // Actualiza el propietario de la sala cuando los participantes se actualizan
-          console.log('2===>', owner);
+          setOwner(owner);
         }
       }
     );

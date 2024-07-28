@@ -13,6 +13,11 @@ const Home = () => {
       return;
     }
 
+    // hay que pasar texto a slug
+    const cleanInstanceName = instanceName
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '-');
+
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/rooms`, {
         method: 'POST',
@@ -20,14 +25,14 @@ const Home = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          slug: instanceName,
+          slug: cleanInstanceName,
           open: true,
           create_at: new Date(),
         }),
       });
 
       if (response.ok) {
-        navigate(`/${instanceName}`);
+        navigate(`/${cleanInstanceName}`);
       } else {
         const errorData = await response.json();
         setError(`Error: ${errorData.message}`);
