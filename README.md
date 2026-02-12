@@ -47,16 +47,26 @@ Aplicación web moderna y minimalista para Planning Poker, construida con **Reac
     npm start
     ```
 
+## 🌐 Despliegue
+
+El frontend está desplegado en **GitHub Pages**:
+
+- **URL**: [https://sebavidal10.github.io/planning-poker/](https://sebavidal10.github.io/planning-poker/)
+
+> [!IMPORTANT]
+> Al desplegar en un subpath de GitHub Pages, la aplicación está configurada con `homepage` y `basename` para que las rutas funcionen correctamente.
+
+## 📖 Cómo Usar
+
+1.  **Crear una Sala**: Ingresa un nombre para tu sesión (ej. "Sprint 23") y elige el tipo de mazo (Fibonacci, T-Shirt, etc.).
+2.  **Unirse**: Comparte la URL de la sala con tu equipo. Cada integrante entrará con su nombre.
+3.  **Votar**: Cada usuario selecciona una carta. Los votos permanecen ocultos hasta que el administrador decida revelarlos.
+4.  **Gestionar Rondas (Admin)**: El creador de la sala puede:
+    - Revelar los votos (calcula automáticamente el promedio).
+    - Reiniciar la ronda para una nueva votación.
+    - Agregar nuevas tareas/rondas sin salir de la sala.
+    - Expulsar participantes si es necesario.
+
 ## 🏗 Arquitectura
 
-- **`usePlanningPoker`**: Custom hook que centraliza toda la interacción con Sockets y API, facilitando el mantenimiento y testeo de la lógica de negocio.
-- **Componentes Atómicos**: Reutilización de componentes como `Card`, `Modal` e `IconComponent`.
-- **Contextos**: `ThemeContext` y `LanguageContext` para persistencia de preferencias de usuario.
-
-## 🧪 Testing
-
-```bash
-npm test
-```
-
-- Cobertura de lógica de votos, conexión a sala y renderizado de componentes críticos.
+... (resto del archivo)
