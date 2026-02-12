@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/planning-poker/static/css/main.1c96a917.css",
-    "main.js": "/planning-poker/static/js/main.991b4152.js",
+    "main.js": "/planning-poker/static/js/main.71b6a8cc.js",
     "index.html": "/planning-poker/index.html",
     "main.1c96a917.css.map": "/planning-poker/static/css/main.1c96a917.css.map",
-    "main.991b4152.js.map": "/planning-poker/static/js/main.991b4152.js.map"
+    "main.71b6a8cc.js.map": "/planning-poker/static/js/main.71b6a8cc.js.map"
   },
   "entrypoints": [
     "static/css/main.1c96a917.css",
-    "static/js/main.991b4152.js"
+    "static/js/main.71b6a8cc.js"
   ]
 }
