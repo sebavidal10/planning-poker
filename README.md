@@ -64,9 +64,19 @@ El frontend está desplegado en **GitHub Pages**:
 4.  **Gestionar Rondas (Admin)**: El creador de la sala puede:
     - Revelar los votos (calcula automáticamente el promedio).
     - Reiniciar la ronda para una nueva votación.
-    - Agregar nuevas tareas/rondas sin salir de la sala.
+    - Agregar nuevas tareas/rondass sin salir de la sala.
     - Expulsar participantes si es necesario.
 
 ## 🏗 Arquitectura
 
-... (resto del archivo)
+- **`usePlanningPoker`**: Custom hook que centraliza toda la interacción con Sockets y API, facilitando el mantenimiento y testeo de la lógica de negocio.
+- **Componentes Atómicos**: Reutilización de componentes como `Card`, `Modal` e `IconComponent`.
+- **Contextos**: `ThemeContext` e `LanguageContext` para persistencia de preferencias de usuario.
+
+## 🧪 Testing
+
+```bash
+npm test
+```
+
+- Cobertura de lógica de votos, conexión a sala y renderizado de componentes críticos.
