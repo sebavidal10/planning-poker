@@ -10,7 +10,7 @@ import Home from './Home';
 import NotFound from './NotFound';
 
 const Root = () => (
-  <Router>
+  <Router basename={process.env.PUBLIC_URL}>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/:slug" element={<App />} />
