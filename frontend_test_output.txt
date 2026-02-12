@@ -1,0 +1,121 @@
+
+> planning-poker@0.1.0 test
+> react-scripts test --coverage --watchAll=false
+
+FAIL src/hooks/usePlanningPoker.test.js
+  ● usePlanningPoker Hook › handles timerTick
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: null
+    Received: -1
+
+    [0m [90m 140 |[39m     })[33m;[39m
+     [90m 141 |[39m
+    [31m[1m>[22m[39m[90m 142 |[39m     expect(result[33m.[39mcurrent[33m.[39mtimer)[33m.[39mtoBe([36mnull[39m)[33m;[39m
+     [90m     |[39m                                  [31m[1m^[22m[39m
+     [90m 143 |[39m     expect(result[33m.[39mcurrent[33m.[39misRevealed)[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m 144 |[39m
+     [90m 145 |[39m     jest[33m.[39museRealTimers()[33m;[39m[0m
+
+      at Object.<anonymous> (src/hooks/usePlanningPoker.test.js:142:34)
+
+PASS src/components/Card.test.js
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `whileHover` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `whilehover` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at button
+          at button (/Users/sebavidal/Workspace/sebavidal10/planning-poker/planning-poker/src/components/Card.test.js:9:16)
+          at Card (/Users/sebavidal/Workspace/sebavidal10/planning-poker/planning-poker/src/components/Card.jsx:4:17)
+
+    [0m [90m 32 |[39m
+     [90m 33 |[39m   test([32m'renders card value correctly'[39m[33m,[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 34 |[39m     render(
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 35 |[39m       [33m<[39m[33mCard[39m
+     [90m 36 |[39m         value[33m=[39m[32m"8"[39m
+     [90m 37 |[39m         onSelect[33m=[39m{mockOnSelect}[0m
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3757:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3803:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3827:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:9541:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9830:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10950:3)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22232:17)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26632:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26607:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25777:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:46:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:189:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:291:10)
+      at Object.<anonymous> (src/components/Card.test.js:34:11)
+
+    console.error
+      Warning: React does not recognize the `whileTap` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `whiletap` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at button
+          at button (/Users/sebavidal/Workspace/sebavidal10/planning-poker/planning-poker/src/components/Card.test.js:9:16)
+          at Card (/Users/sebavidal/Workspace/sebavidal10/planning-poker/planning-poker/src/components/Card.jsx:4:17)
+
+    [0m [90m 32 |[39m
+     [90m 33 |[39m   test([32m'renders card value correctly'[39m[33m,[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 34 |[39m     render(
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 35 |[39m       [33m<[39m[33mCard[39m
+     [90m 36 |[39m         value[33m=[39m[32m"8"[39m
+     [90m 37 |[39m         onSelect[33m=[39m{mockOnSelect}[0m
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3757:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3803:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3827:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:9541:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9830:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10950:3)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22232:17)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26632:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26607:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26505:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26473:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25777:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:46:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:189:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:291:10)
+      at Object.<anonymous> (src/components/Card.test.js:34:11)
+
+PASS src/views/Home.test.js
+----------------------|---------|----------|---------|---------|------------------------------------
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                  
+----------------------|---------|----------|---------|---------|------------------------------------
+All files             |   46.23 |    30.63 |    42.1 |    45.4 |                                    
+ src                  |       0 |        0 |       0 |       0 |                                    
+  index.js            |       0 |      100 |     100 |       0 | 6                                  
+  reportWebVitals.js  |       0 |        0 |       0 |       0 | 1-8                                
+ src/components       |      12 |    54.54 |   18.18 |    12.5 |                                    
+  Card.jsx            |     100 |      100 |     100 |     100 |                                    
+  CardList.jsx        |       0 |        0 |       0 |       0 | 4-11                               
+  CountdownTimer.jsx  |       0 |        0 |       0 |       0 | 3-33                               
+ src/hooks            |   83.33 |       50 |   81.81 |   82.81 |                                    
+  usePlanningPoker.js |   83.33 |       50 |   81.81 |   82.81 | 40,59-62,77-78,105-107,112-113,118 
+ src/views            |   28.75 |    16.39 |   18.18 |   29.87 |                                    
+  App.js              |       0 |        0 |       0 |       0 | 7-295                              
+  Home.js             |   95.83 |    83.33 |     100 |   95.83 | 39                                 
+  NotFound.js         |       0 |      100 |       0 |       0 | 5-12                               
+  Root.js             |       0 |      100 |       0 |       0 | 13-19                              
+----------------------|---------|----------|---------|---------|------------------------------------
+
+Test Suites: 1 failed, 2 passed, 3 total
+Tests:       1 failed, 14 passed, 15 total
+Snapshots:   0 total
+Time:        1.537 s
+Ran all test suites.

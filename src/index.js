@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './views/Root'; // Asegúrate de importar el componente Root
-import './assets/styles/main.css';
+import Root from './views/Root';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { LanguageProvider } from './contexts/LanguageContext';
+import './assets/styles/index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root />
+    <ThemeProvider>
+      <LanguageProvider>
+        <Root />
+      </LanguageProvider>
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
