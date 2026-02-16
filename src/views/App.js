@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePlanningPoker } from '../hooks/usePlanningPoker';
@@ -9,19 +9,17 @@ import Modal from '../components/Modal';
 import * as LucideIcons from 'lucide-react';
 import {
   LogOut,
-  Trash2,
   Play,
   RefreshCcw,
   Plus,
   Lock,
   X,
-  Settings,
-  ChevronRight,
   User,
   Coffee,
   HelpCircle,
   Sun,
   Moon,
+  Heart,
 } from 'lucide-react';
 
 const decks = {
@@ -276,6 +274,15 @@ const App = () => {
                   {userName}
                 </p>
               </div>
+              <a
+                href="https://github.com/sponsors/sebavidal10"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-pink-600 dark:text-pink-500 hover:bg-pink-50 dark:hover:bg-pink-900/20 border-t border-zinc-200 dark:border-zinc-800"
+              >
+                <Heart size={14} />
+                {t.buyMeACoffee}
+              </a>
               <button
                 onClick={() => {
                   actions.leaveRoom();
@@ -284,7 +291,7 @@ const App = () => {
                   setUserName('');
                   navigate('/');
                 }}
-                className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
+                className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 border-t border-zinc-200 dark:border-zinc-800"
               >
                 <LogOut size={14} />
                 {t.leave}

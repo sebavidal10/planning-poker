@@ -135,6 +135,30 @@ const Home = () => {
           </button>
         </form>
       </motion.div>
+
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 text-center"
+      >
+        <a
+          href="https://github.com/sponsors/sebavidal10"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex flex-col items-center gap-2 text-zinc-500 hover:text-zinc-300 transition-colors"
+        >
+          <div className="flex items-center gap-2 font-medium text-sm">
+            <span className="p-2 rounded-full bg-zinc-900 border border-zinc-800 transition-colors group-hover:border-zinc-700">
+              ❤️
+            </span>
+            {t.buyMeACoffee}
+          </div>
+          <p className="text-[10px] text-zinc-600 dark:text-zinc-500 font-medium px-4">
+            {t.buyMeACoffeeMessage}
+          </p>
+        </a>
+      </motion.footer>
     </div>
   );
 };

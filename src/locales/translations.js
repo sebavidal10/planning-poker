@@ -34,6 +34,9 @@ export const translations = {
     deckType: 'Deck Type',
     createRoom: 'Create Room',
     creating: 'Creating...',
+    buyMeACoffee: 'Sponsor this project',
+    buyMeACoffeeMessage:
+      'If you like the app and feel it helped you, consider sponsoring it on GitHub!',
   },
   es: {
     title: 'PokerPlanning',
@@ -70,5 +73,8 @@ export const translations = {
     deckType: 'Tipo de Mazo',
     createRoom: 'Crear Sala',
     creating: 'Creando...',
+    buyMeACoffee: 'Patrocina este proyecto',
+    buyMeACoffeeMessage:
+      'Si te gusta la app y sientes que te ayudó, ¡puedes apoyarla en GitHub Sponsors!',
   },
 };
