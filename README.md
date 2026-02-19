@@ -53,8 +53,20 @@ El frontend está desplegado en **GitHub Pages**:
 
 - **URL**: [https://sebavidal10.github.io/planning-poker/](https://sebavidal10.github.io/planning-poker/)
 
+### Cómo desplegar cambios
+
+Para actualizar el despliegue en GitHub Pages después de hacer cambios en el código:
+
+1.  Asegúrate de estar en la rama `main`.
+2.  Ejecuta el siguiente comando:
+    ```bash
+    npm run deploy
+    ```
+
+Este comando generará automáticamente el `build` de producción y lo subirá a la rama `gh-pages`.
+
 > [!IMPORTANT]
-> Al desplegar en un subpath de GitHub Pages, la aplicación está configurada con `homepage` y `basename` para que las rutas funcionen correctamente.
+> Al desplegar en un subpath de GitHub Pages, la aplicación está configurada con `homepage` y `basename` para que las rutas funcionen correctamente. Además, se incluye un script en `404.html` para manejar el enrutamiento de la SPA.
 
 ## 📖 Cómo Usar
 
