@@ -1,22 +1,23 @@
 # PokerPlanning - Frontend 🃏
 
-Aplicación web moderna y minimalista para Planning Poker, construida con **React**, **Tailwind CSS** y **Framer Motion**. Diseñada para ofrecer una experiencia de usuario premium, rápida y personalizable.
+Aplicación web moderna y minimalista para Planning Poker, construida con **React**, **Tailwind CSS** y **Framer Motion**. Diseñada para ofrecer una experiencia de usuario premium, rápida y altamente visual con una nueva identidad de marca integrada.
 
 ## 🛠 Tecnologías
 
 - **React**: Biblioteca principal de UI.
-- **Tailwind CSS**: Estilizado con sistema de diseño personalizado y soporte para **Dark Mode**.
-- **Framer Motion**: Animaciones fluidas (volteo de cartas 3D, transiciones de modales).
+- **Tailwind CSS**: Estilizado con sistema de diseño personalizado y soporte nativo para **Dark/Light Mode**.
+- **Framer Motion**: Animaciones fluidas, transiciones de tarjetas 3D y efectos de resplandor.
 - **Lucide React**: Sistema de iconos vectoriales para avatares y UI.
 - **Context API**: Gestión de estado global para **Temas** e **Idiomas (i18n)**.
 - **Socket.IO Client**: Comunicación bidireccional en tiempo real.
 
 ## 🚀 Características Premium
 
-- **Minimalismo Premium**: Diseño basado en Zinc (900/950) con acentos en Índigo.
+- **Identidad Renovada**: Integración de logo personalizado especializado en gestión ágil y diseño tech-oriented.
+- **Minimalismo Premium**: Diseño basado en Zinc (900/950) con acentos en Índigo y Púrpura.
+- **Sistema de Temas Dinámico**: Selector de modo **Oscuro/Claro** mejorado con transiciones suaves y soporte global de colores.
 - **Soporte Multironda**: Gestiona múltiples tareas en una sola sesión sin reiniciar la sala.
 - **Internacionalización (i18n)**: Soporte completo para **Inglés** y **Español**.
-- **Modo Oscuro/Claro**: Selector de tema persistente.
 - **Avatares Minimalistas**: Iconos de animales automáticos que reemplazan a los antiguos emojis.
 - **Cartas Especiales**: Soporte para votos de "Café" (☕️) y "Incertidumbre" (?).
 - **Gestión de Sala (Owner)**:
@@ -24,7 +25,7 @@ Aplicación web moderna y minimalista para Planning Poker, construida con **Reac
   - Bloquear/Reiniciar rondas.
   - Revelar votos con cálculos automáticos.
   - Cerrar sala globalmente.
-- **Modales Personalizados**: Reemplazo total de alertas nativas por diálogos animados.
+- **Modales Personalizados**: Sistemas de diálogos animados para errores, expulsiones y confirmaciones.
 
 ## 📦 Instalación y Ejecución
 

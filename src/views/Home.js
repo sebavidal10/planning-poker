@@ -47,25 +47,40 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-zinc-950 text-zinc-100 overflow-hidden relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.15),transparent_50%)]" />
+    <div className="min-h-screen flex items-center justify-center p-4 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 overflow-hidden relative transition-colors duration-300">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.1),transparent_50%)]" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative z-10 max-w-md w-full bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-2xl p-8 shadow-2xl"
+        className="relative z-10 max-w-md w-full bg-zinc-50/50 dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-2xl p-8 shadow-2xl transition-colors duration-300"
       >
         <div className="text-center mb-8 relative">
-          <div className="absolute -top-4 -right-4 flex gap-2">
+          <div className="flex justify-center mb-6">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, type: 'spring' }}
+              className="w-40 h-40 relative"
+            >
+              <div className="absolute inset-0 bg-indigo-500/20 rounded-full blur-3xl -z-10" />
+              <img
+                src={process.env.PUBLIC_URL + '/logo.png'}
+                alt="Poker Planning Logo"
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </div>
+          <div className="absolute -top-4 -right-4 flex gap-2 z-50">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-zinc-800 text-sm"
+              className="p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 text-sm transition-colors"
             >
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
             <button
               onClick={toggleLanguage}
-              className="p-2 rounded-full hover:bg-zinc-800 font-bold text-xs uppercase w-8 h-8 flex items-center justify-center border border-zinc-700"
+              className="p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800 font-bold text-xs uppercase w-8 h-8 flex items-center justify-center border border-zinc-300 dark:border-zinc-700 transition-colors"
             >
               {language}
             </button>
@@ -98,7 +113,7 @@ const Home = () => {
               value={instanceName}
               onChange={(e) => setInstanceName(e.target.value)}
               placeholder={t.roomPlaceholder || 'e.g. Sprint 23 Planning'}
-              className="w-full bg-zinc-950/50 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all font-medium"
+              className="w-full bg-white dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all font-medium"
             />
           </div>
 
@@ -109,7 +124,7 @@ const Home = () => {
             <select
               value={deckType}
               onChange={(e) => setDeckType(e.target.value)}
-              className="w-full bg-zinc-950/50 border border-zinc-800 rounded-lg px-4 py-3 text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 appearance-none transition-all font-medium"
+              className="w-full bg-white dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 appearance-none transition-all font-medium"
             >
               <option value="fibonacci">Fibonacci (0, 1, 2, 3, 5, 8...)</option>
               <option value="modified-fibonacci">
@@ -146,10 +161,10 @@ const Home = () => {
           href="https://github.com/sponsors/sebavidal10"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col items-center gap-2 text-zinc-500 hover:text-zinc-300 transition-colors"
+          className="group flex flex-col items-center gap-2 text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
         >
           <div className="flex items-center gap-2 font-medium text-sm">
-            <span className="p-2 rounded-full bg-zinc-900 border border-zinc-800 transition-colors group-hover:border-zinc-700">
+            <span className="p-2 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-colors group-hover:border-zinc-300 dark:group-hover:border-zinc-700">
               ❤️
             </span>
             {t.buyMeACoffee}

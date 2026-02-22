@@ -131,13 +131,21 @@ const App = () => {
           animate={{ opacity: 1, scale: 1 }}
           className="w-full max-w-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-8 rounded-2xl shadow-xl"
         >
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col items-center mb-8">
+            <div className="w-32 h-32 mb-4 relative">
+              <div className="absolute inset-0 bg-indigo-500/10 rounded-full blur-3xl -z-10" />
+              <img
+                src={process.env.PUBLIC_URL + '/logo.png'}
+                alt="Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
             <h2 className="text-2xl font-bold text-center">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">
                 PokerPlanning
               </span>
             </h2>
-            <div className="flex gap-2">
+            <div className="absolute top-6 right-6 flex gap-2 z-50">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full hover:bg-zinc-200 dark:hover:bg-zinc-800"
@@ -187,8 +195,12 @@ const App = () => {
       <header className="px-6 py-4 border-b border-zinc-200 dark:border-zinc-800 flex justify-between items-center bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center gap-6">
           <div className="font-bold text-xl tracking-tight flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
-              <IconComponent name="Layers" className="w-5 h-5" />
+            <div className="w-14 h-14 overflow-hidden flex items-center justify-center">
+              <img
+                src={process.env.PUBLIC_URL + '/logo.png'}
+                alt="Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className="text-zinc-900 dark:text-white">
               <span className="text-indigo-600 dark:text-indigo-400">
